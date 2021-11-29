@@ -23,6 +23,11 @@ const GlobalStyle = createGlobalStyle`
     font: 400 1.6rem 'Lato', sans-serif;
   }
 
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
   button,
   input,
   textarea {
