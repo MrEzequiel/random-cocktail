@@ -1,18 +1,20 @@
 import React from 'react'
 
 import logo from '../assets/logo.svg'
-import random from '../assets/random.svg'
+import randomIcon from '../assets/random.svg'
 
 import { HeaderContainer, ButtonHeader } from './Header.style'
 
 function Header() {
+  const handleClick = () => {}
+
   return (
     <HeaderContainer container="940px">
       <img src={logo} alt="logo cocktail random" />
 
-      <ButtonHeader>
+      <ButtonHeader onClick={handleClick}>
         Random
-        <img src={random} alt="random button" />
+        <img src={randomIcon} alt="random button" />
       </ButtonHeader>
     </HeaderContainer>
   )
