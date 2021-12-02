@@ -10,6 +10,10 @@ export const HeaderContainer = styled.header`
   max-width: ${props => props.container};
   margin: 0 auto;
   padding: 30px 0;
+
+  @media (max-width: 980px) {
+    padding: 30px 20px;
+  }
 `
 
 export const ButtonHeader = styled.button`

@@ -21,6 +21,14 @@ export const ContainerCocktail = styled.main`
   grid-template-columns: 7fr 9fr;
   margin: 60px auto;
 
+  @media (max-width: 980px) {
+    margin: 30px 20px;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
+
   box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.25);
 
   @keyframes show-right {
@@ -47,8 +55,18 @@ export const ImageCocktail = styled.div`
   background: url(${backgroundDrink});
   background-repeat: repeat-y;
 
+  @media (max-width: 700px) {
+    border-right: none;
+    border-bottom: 1px solid #d6685a;
+
+    img {
+      height: 350px;
+    }
+  }
+
   img {
     box-shadow: 0px 8px 8px -1px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
   }
 `
 
