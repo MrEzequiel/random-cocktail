@@ -2,6 +2,16 @@ import styled from 'styled-components'
 
 import backgroundDrink from '../assets/background-drink.png'
 
+export const TitleSection = styled.h2`
+  font-family: 'Petrona', serif;
+  font-size: ${props => props.fontSize};
+  margin-bottom: 15px;
+`
+
+TitleSection.defaultProps = {
+  fontSize: '2.4rem'
+}
+
 export const ContainerCocktail = styled.main`
   background: #0e0e0e;
   border: 1px solid #d6685a;
@@ -12,6 +22,19 @@ export const ContainerCocktail = styled.main`
   margin: 60px auto;
 
   box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.25);
+
+  @keyframes show-right {
+    from {
+      opacity: 0;
+      transform: translate3d(-35px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  animation: show-right 500ms forwards ease-in-out;
 `
 
 export const ImageCocktail = styled.div`
@@ -35,6 +58,17 @@ export const ContentCocktail = styled.div`
   & > section {
     padding: 0 15px;
   }
+
+  & > section:nth-child(1) {
+    animation: show-right 800ms forwards ease-in-out;
+  }
+  & > section:nth-child(2) {
+    animation: show-right 900ms forwards ease-in-out;
+  }
+  & > section:nth-child(3) {
+    animation: show-right 1s forwards ease-in-out;
+  }
+
   & > section + section {
     border-top: 1px dashed #d6685a;
   }
@@ -67,15 +101,9 @@ export const ContentCocktail = styled.div`
     }
   }
 
-  .indredients {
+  .ingredients {
     padding-top: 30px;
     padding-bottom: 30px;
-
-    h2 {
-      font-family: 'Petrona', serif;
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-    }
 
     ul li + li {
       margin-top: 5px;
@@ -85,11 +113,6 @@ export const ContentCocktail = styled.div`
   .instructions {
     padding-top: 30px;
 
-    h2 {
-      font-family: 'Petrona', serif;
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-    }
     p {
       line-height: 24px;
     }

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Loading from './Loading'
+
 import categoryIcon from '../assets/category-icon.svg'
 import alcoholicIicon from '../assets/alcoholic-icon.svg'
 import glassIcon from '../assets/glass-icon.svg'
@@ -7,12 +9,11 @@ import glassIcon from '../assets/glass-icon.svg'
 import {
   ContainerCocktail,
   ImageCocktail,
-  ContentCocktail
+  ContentCocktail,
+  TitleSection
 } from './Cocktail.style'
 
 function Cocktail({ cocktail }) {
-  console.log(cocktail)
-
   const setIngredients = () => {
     const cocktailArray = Object.entries(cocktail)
 
@@ -36,7 +37,7 @@ function Cocktail({ cocktail }) {
       const measure = listMeasure[index]
       if (measure) {
         return (
-          <li key={ingredient}>
+          <li key={ingredient + index}>
             {ingredient}
             {': '} <strong>{measure}</strong>
           </li>
@@ -46,7 +47,7 @@ function Cocktail({ cocktail }) {
     })
   }
 
-  if (cocktail) {
+  if (Object.keys(cocktail).length) {
     return (
       <ContainerCocktail>
         <ImageCocktail>
@@ -74,20 +75,20 @@ function Cocktail({ cocktail }) {
             </ul>
           </section>
 
-          <section className="indredients">
-            <h2>Indredients:</h2>
+          <section className="ingredients">
+            <TitleSection>Ingredients: </TitleSection>
             <ul>{setIngredients()}</ul>
           </section>
 
           <section className="instructions">
-            <h2>Instructions:</h2>
+            <TitleSection>Instructions: </TitleSection>
             <p>{cocktail.strInstructions}</p>
           </section>
         </ContentCocktail>
       </ContainerCocktail>
     )
   } else {
-    return null
+    return <Loading />
   }
 }
 

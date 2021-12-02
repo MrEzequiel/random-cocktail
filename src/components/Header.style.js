@@ -18,7 +18,7 @@ export const ButtonHeader = styled.button`
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 15px 0;
+  padding: 10px 0;
   width: 160px;
   border: 1px solid #f7f7f7;
 
@@ -27,5 +27,18 @@ export const ButtonHeader = styled.button`
   img {
     width: 20px;
     height: 20px;
+  }
+
+  @keyframes snowman {
+    from {
+      transform: rotate(4deg);
+    }
+    to {
+      transform: rotate(-4deg);
+    }
+  }
+
+  &:hover {
+    animation: snowman 500ms alternate infinite ease-in-out;
   }
 `

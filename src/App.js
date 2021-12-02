@@ -8,6 +8,8 @@ function App() {
   const [random, setRandom] = React.useState(null)
 
   const randomCocktail = async () => {
+    setRandom({})
+
     const data = await fetch(
       `https://www.thecocktaildb.com/api/json/v1/1/random.php`
     )
@@ -24,7 +26,7 @@ function App() {
     <>
       <GlobalStyle />
 
-      <Header />
+      <Header randomFunction={randomCocktail} />
       <Cocktail cocktail={random} />
     </>
   )
